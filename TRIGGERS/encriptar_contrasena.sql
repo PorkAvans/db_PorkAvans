@@ -1,0 +1,12 @@
+-- CREATE OR REPLACE FUNCTION contabilidad_cerdos.calcular_md5()
+--     RETURNS TRIGGER AS $$
+-- BEGIN
+--     NEW.user_password := MD5(NEW.user_password);
+--     RETURN NEW;
+-- END;
+-- $$ LANGUAGE plpgsql;
+--
+-- CREATE TRIGGER encriptar_contraseña
+--     BEFORE INSERT OR UPDATE OF user_password ON contabilidad_cerdos.users
+--     FOR EACH ROW
+-- EXECUTE FUNCTION contabilidad_cerdos.calcular_md5();
