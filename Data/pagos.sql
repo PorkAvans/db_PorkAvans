@@ -51,5 +51,6 @@ VALUES (1, '2024-01-31', 30000, 'Daniel Chacon Carrascal'),
        (3, '2024-10-01', 20000, 'Julian perez'),
        (3, '2024-10-01', 30000, 'Julian perez'),
        (5, '2024-10-01', 20000, 'Julian perez'),
-       (1, '2024-10-01', 75000, 'Julian perez')
+       (1, '2024-10-01', 75000, 'Julian perez'),
+       (1, '2024-11-04', 247500, 'Daniel')
 ;
