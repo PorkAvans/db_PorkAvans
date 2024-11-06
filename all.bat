@@ -61,6 +61,8 @@ psql -U postgres -d cerdos -f ./Data/corral.sql
 psql -U postgres -d cerdos -f ./Data/tipos_costos.sql
 psql -U postgres -d cerdos -f ./Data/Categoria_Costo.sql
 psql -U postgres -d cerdos -f ./Data/comida_suministrada.sql
+psql -U postgres -d cerdos -f ./Data/commission_type.sql
+psql -U postgres -d cerdos -f ./Data/product_category_sale.sql
 
 
 
