@@ -105,3 +105,28 @@ ALTER TABLE contabilidad_cerdos.medicamento_animal
 ALTER TABLE contabilidad_cerdos.animal
     ADD CONSTRAINT fk_animal_corral
         FOREIGN KEY (corral_id) REFERENCES contabilidad_cerdos.corral (corral_id);
+
+-- establecer la relación entre categpria de producto y productos de venta
+ALTER TABLE contabilidad_cerdos.products_sale
+    ADD CONSTRAINT fk_product_category
+        FOREIGN KEY (category) REFERENCES contabilidad_cerdos.product_category_sale (product_category_sale_id);
+
+-- establecer la relación entre tipo de comision y comision
+ALTER TABLE contabilidad_cerdos.commissions
+    ADD CONSTRAINT fk_commissions_type
+        FOREIGN KEY (commission_type) REFERENCES contabilidad_cerdos.commission_type (commission_type_id);
+
+-- establecer la relación entre associate_commissions y asociado
+ALTER TABLE contabilidad_cerdos.associate_commissions
+    ADD CONSTRAINT fk_associate_commissions_associate
+        FOREIGN KEY (associate_id) REFERENCES contabilidad_cerdos.users (user_id);
+
+-- establecer la relación entre associate_commissions Y product_sale
+ALTER TABLE contabilidad_cerdos.associate_commissions
+    ADD CONSTRAINT fk_associate_commissions_product_sale
+        FOREIGN KEY (product_id) REFERENCES contabilidad_cerdos.products_sale (product_sale_id);
+
+-- establecer la relación entre associate_commissions Y copmision
+ALTER TABLE contabilidad_cerdos.associate_commissions
+    ADD CONSTRAINT fk_associate_commissions_commission
+        FOREIGN KEY (commissions_id) REFERENCES contabilidad_cerdos.commissions (commission_id);

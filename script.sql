@@ -244,3 +244,49 @@ CREATE TABLE contabilidad_cerdos.costos_produccion
     corral_id               INT,         -- Si el costo está asociado a un corral específico
     empleado_id             TEXT         -- FK a la tabla de usuarios
 );
+
+--se crera la tabla tipo_comision
+CREATE TABLE contabilidad_cerdos.commission_type
+(
+    commission_type_id          SERIAL PRIMARY KEY,
+    commission_type_description VARCHAR(255)
+);
+
+--se crea la tabla de comision
+CREATE TABLE contabilidad_cerdos.commissions
+(
+    commission_id   SERIAL PRIMARY KEY,
+    commission_type INT            NOT NULL, -- Ej.: 'Porcentaje', 'Fijo'
+    value           NUMERIC(10, 2) NOT NULL, -- Ej.: 5.00 para 5% o monto fijo
+    description     VARCHAR(255)
+);
+
+--se crea la tabla product_category_sale
+CREATE TABLE contabilidad_cerdos.product_category_sale
+(
+    product_category_sale_id SERIAL PRIMARY KEY,
+    description              VARCHAR(255)
+);
+
+--se crea tabla de products_sale
+CREATE TABLE contabilidad_cerdos.products_sale
+(
+    product_sale_id SERIAL PRIMARY KEY,
+    name            VARCHAR(100)   NOT NULL,
+    description     TEXT,
+    price           NUMERIC(10, 2) NOT NULL,
+    category        INT
+);
+
+--se crea la tabla
+CREATE TABLE contabilidad_cerdos.associate_commissions
+(
+    associate_commissions_id SERIAL PRIMARY KEY,
+    associate_id             TEXT NOT NULL,
+    product_id               INT NOT NULL,
+    commissions_id           INT NOT NULL,
+    start_date               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    end_date                 TIMESTAMP
+);
+
+

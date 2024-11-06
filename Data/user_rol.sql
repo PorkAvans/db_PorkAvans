@@ -2,5 +2,5 @@
 INSERT INTO contabilidad_cerdos.users_rol (rol)
 VALUES ('ADMINISTRADOR'),
        ('EMPLEADO'),
-       ('ASOCIADO')
+       ('AFILIADO')
 ;
