@@ -134,7 +134,7 @@ CREATE TABLE contabilidad_cerdos.users
     celular              VARCHAR(20),
     user_email           VARCHAR(55),
     user_rol             INT,
-    user_estado          INT,
+    user_estado          INT  DEFAULT 2,
     logued               BOOLEAN,
     inicio_sesion        TIMESTAMP,
     password_update_date TIMESTAMP,    -- campo nuevo para auditoría
@@ -275,7 +275,8 @@ CREATE TABLE contabilidad_cerdos.products_sale
     name            VARCHAR(100)   NOT NULL,
     description     TEXT,
     price           NUMERIC(10, 2) NOT NULL,
-    category        INT
+    category        INT,
+    quantity        INT
 );
 
 --se crea la tabla
@@ -286,7 +287,8 @@ CREATE TABLE contabilidad_cerdos.associate_commissions
     product_id               INT NOT NULL,
     commissions_id           INT NOT NULL,
     start_date               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    end_date                 TIMESTAMP
+    end_date                 TIMESTAMP,
+    access_number            INT
 );
 
 
