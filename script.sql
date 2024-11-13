@@ -289,7 +289,7 @@ CREATE TABLE contabilidad_cerdos.associate_commissions
     commissions_id           INT  NOT NULL,
     start_date               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     end_date                 TIMESTAMP,
-    access_number            INT
+    access_number            INT DEFAULT 0
 );
 
 --se crea la tabla de ventas
