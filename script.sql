@@ -134,7 +134,7 @@ CREATE TABLE contabilidad_cerdos.users
     celular              VARCHAR(20),
     user_email           VARCHAR(55),
     user_rol             INT,
-    user_estado          INT  DEFAULT 2,
+    user_estado          INT DEFAULT 2,
     logued               BOOLEAN,
     inicio_sesion        TIMESTAMP,
     password_update_date TIMESTAMP,    -- campo nuevo para auditoría
@@ -271,12 +271,13 @@ CREATE TABLE contabilidad_cerdos.product_category_sale
 --se crea tabla de products_sale
 CREATE TABLE contabilidad_cerdos.products_sale
 (
-    product_sale_id SERIAL PRIMARY KEY,
-    name            VARCHAR(100)   NOT NULL,
-    description     TEXT,
-    price           NUMERIC(10, 2) NOT NULL,
-    category        INT,
-    quantity        INT
+    product_sale_id     SERIAL PRIMARY KEY,
+    product_sale_imagen BYTEA,
+    name                VARCHAR(100)   NOT NULL,
+    description         TEXT,
+    price               NUMERIC(10, 2) NOT NULL,
+    category            INT,
+    quantity            INT
 );
 
 --se crea la tabla
@@ -284,11 +285,24 @@ CREATE TABLE contabilidad_cerdos.associate_commissions
 (
     associate_commissions_id SERIAL PRIMARY KEY,
     associate_id             TEXT NOT NULL,
-    product_id               INT NOT NULL,
-    commissions_id           INT NOT NULL,
+    product_id               INT  NOT NULL,
+    commissions_id           INT  NOT NULL,
     start_date               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     end_date                 TIMESTAMP,
     access_number            INT
 );
+
+--se crea la tabla de ventas
+CREATE TABLE contabilidad_cerdos.ventas
+(
+    venta_id          SERIAL PRIMARY KEY,
+    asociado_id       TEXT           NOT NULL,
+    producto_id       INT            NOT NULL,
+    cantidad          INT            NOT NULL,
+    fecha_venta       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_venta       NUMERIC(10, 2) NOT NULL,
+    comision_generada NUMERIC(10, 2)
+);
+
 
 
