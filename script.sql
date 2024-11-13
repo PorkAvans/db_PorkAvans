@@ -277,7 +277,8 @@ CREATE TABLE contabilidad_cerdos.products_sale
     description         TEXT,
     price               NUMERIC(10, 2) NOT NULL,
     category            INT,
-    quantity            INT
+    quantity            INT,
+    commission          INT
 );
 
 --se crea la tabla

@@ -139,3 +139,8 @@ ALTER TABLE contabilidad_cerdos.ventas
 ALTER TABLE contabilidad_cerdos.ventas
     ADD CONSTRAINT fk_producto
         FOREIGN KEY (producto_id) REFERENCES contabilidad_cerdos.products_sale (product_sale_id);
+
+--establecer la relacion entre la tabla de product_sale y commission
+ALTER TABLE contabilidad_cerdos.products_sale
+    ADD CONSTRAINT fk_commission
+        FOREIGN KEY (commission) REFERENCES contabilidad_cerdos.commissions (commission_id);
