@@ -278,7 +278,7 @@ CREATE TABLE contabilidad_cerdos.products_sale
     price               NUMERIC(10, 2) NOT NULL,
     category            INT,
     quantity            INT,
-    commission          INT
+    commission_id       INT
 );
 
 --se crea la tabla
@@ -287,10 +287,9 @@ CREATE TABLE contabilidad_cerdos.associate_commissions
     associate_commissions_id SERIAL PRIMARY KEY,
     associate_id             TEXT NOT NULL,
     product_id               INT  NOT NULL,
-    commissions_id           INT  NOT NULL,
     start_date               TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     end_date                 TIMESTAMP,
-    access_number            INT DEFAULT 0
+    access_number            INT       DEFAULT 0
 );
 
 --se crea la tabla de ventas
