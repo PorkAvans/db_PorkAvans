@@ -304,5 +304,17 @@ CREATE TABLE contabilidad_cerdos.ventas
     comision_generada NUMERIC(10, 2)
 );
 
+--se crea la tabla de pre_venta
+CREATE TABLE contabilidad_cerdos.pre_ventas
+(
+    pre_venta_id          SERIAL PRIMARY KEY,
+    pre_venta_asociado_id       TEXT           NOT NULL,
+    pre_venta_producto_id       INT            NOT NULL,
+    pre_venta_cantidad          INT            NOT NULL,
+    fecha_pre_venta       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_pre_venta       NUMERIC(10, 2) NOT NULL
+);
+
+
 
 
