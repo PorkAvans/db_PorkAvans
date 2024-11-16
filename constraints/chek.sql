@@ -17,3 +17,13 @@ ALTER TABLE contabilidad_cerdos.distributor
 ALTER TABLE contabilidad_cerdos.Pagos
     ADD CONSTRAINT check_distribuidor_empleado
         CHECK (distribuidor_id IS NOT NULL OR empleado_id IS NOT NULL);
+
+--se crea constraint para los estados de la tabla de ventas
+ALTER TABLE contabilidad_cerdos.ventas
+    ADD CONSTRAINT check_estado_venta
+        CHECK (estado_venta IN ('APROVADO', 'RECHAZADO'));
+
+--se crea constraint para los estados de la tabla de ventas
+ALTER TABLE contabilidad_cerdos.pre_ventas
+    ADD CONSTRAINT check_estado_venta
+        CHECK (estado_pre_venta IN ('APROVADO', 'RECHAZADO'));
