@@ -303,7 +303,8 @@ CREATE TABLE contabilidad_cerdos.ventas
     total_venta       NUMERIC(10, 2) NOT NULL,
     comision_generada NUMERIC(10, 2),
     imagen_de_venta   BYTEA,
-    estado_venta      VARCHAR(50)
+    estado_venta      VARCHAR(50),
+    correo_venta      VARCHAR(50)
 );
 
 --se crea la tabla de pre_venta
@@ -316,7 +317,8 @@ CREATE TABLE contabilidad_cerdos.pre_ventas
     fecha_pre_venta       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_pre_venta       NUMERIC(10, 2) NOT NULL,
     imagen_pre_venta      BYTEA,
-    estado_pre_venta          VARCHAR(50)
+    estado_pre_venta      VARCHAR(50),
+    correo_pre_venta      VARCHAR(50)
 );
 
 
