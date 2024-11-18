@@ -21,9 +21,9 @@ ALTER TABLE contabilidad_cerdos.Pagos
 --se crea constraint para los estados de la tabla de ventas
 ALTER TABLE contabilidad_cerdos.ventas
     ADD CONSTRAINT check_estado_venta
-        CHECK (estado_venta IN ('APROVADO', 'RECHAZADO'));
+        CHECK (estado_venta IN ('APROBADA', 'RECHAZADA'));
 
 --se crea constraint para los estados de la tabla de ventas
 ALTER TABLE contabilidad_cerdos.pre_ventas
     ADD CONSTRAINT check_estado_venta
-        CHECK (estado_pre_venta IN ('APROVADO', 'RECHAZADO'));
+        CHECK (estado_pre_venta IN ('APROBADA', 'RECHAZADA', 'EN EVALUACIÓN'));
