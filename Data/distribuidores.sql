@@ -36,5 +36,7 @@ VALUES (decode(
                 'base64'), 'POLLO EXPRES', 'avenida central', 'Santa clara', 1, 2, '3143625888',
         '2024-08-20 12:44:00.000000', 1, 'ACTIVO'),
        (decode('', 'base64'), 'Mattia', 'Calle 10 #14-24', 'Centro', 1, 2, '0000000000', '2024-11-04 07:57:00', 1,
+        'ACTIVO'),
+       (decode('', 'base64'), 'ASADERO EL DORADO', 'Dorado', 'Dorado', 1, 2, '0000000000', '2024-12-14 07:57:00', 1,
         'ACTIVO')
 ;

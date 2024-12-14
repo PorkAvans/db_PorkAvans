@@ -18,6 +18,7 @@ psql -U postgres -d cerdos -f ./TRIGGERS/actualizar_stok_comida_suministrada.sql
 psql -U postgres -d cerdos -f ./TRIGGERS/fecha_actualizacion_contrasena.sql
 psql -U postgres -d cerdos -f ./TRIGGERS/intentos_fallidos.sql
 psql -U postgres -d cerdos -f ./TRIGGERS/inicio_sesion.sql
+psql -U postgres -d cerdos -f ./TRIGGERS/registrar_venta.sql
 
 @REM constraints
 psql -U postgres -d cerdos -f ./constraints/fk.sql

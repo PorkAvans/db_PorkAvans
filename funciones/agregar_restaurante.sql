@@ -62,7 +62,7 @@ BEGIN
                                                  collection_id,
                                                  cell_phone, register_date, image)
     VALUES (in_distribuidor_nombre, in_distribuidor_direccion, in_distribuidor_estado_recoleccion_id::INT,
-            in_distribuidor_recoleccion_id::INT, in_distribuidor_telefono, CURRENT_TIMESTAMP, in_distribuidor_imagen);
+            in_distribuidor_recoleccion_id::INT, in_distribuidor_telefono, CURRENT_TIMESTAMP, decode(in_distribuidor_imagen,'base64'));
 
     success_message := 'El Restaurante "' || in_distribuidor_nombre || '" fue agregado correctamente';
 
