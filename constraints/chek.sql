@@ -27,3 +27,8 @@ ALTER TABLE contabilidad_cerdos.ventas
 ALTER TABLE contabilidad_cerdos.pre_ventas
     ADD CONSTRAINT check_estado_venta
         CHECK (estado_pre_venta IN ('APROBADA', 'RECHAZADA', 'EN EVALUACIÓN'));
+
+--se crear constraint para la tabla corral
+ALTER TABLE contabilidad_cerdos.corral
+    ADD CONSTRAINT check_corral_estado
+        CHECK (corral_estado IN ('ACTIVO', 'INACTIVO','EN USO','EN REPARACION'));

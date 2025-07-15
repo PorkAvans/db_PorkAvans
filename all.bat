@@ -19,6 +19,7 @@ psql -U postgres -d cerdos -f ./TRIGGERS/fecha_actualizacion_contrasena.sql
 psql -U postgres -d cerdos -f ./TRIGGERS/intentos_fallidos.sql
 psql -U postgres -d cerdos -f ./TRIGGERS/inicio_sesion.sql
 psql -U postgres -d cerdos -f ./TRIGGERS/registrar_venta.sql
+psql -U postgres -d cerdos -f ./TRIGGERS/corral_capacidad.sql
 
 @REM constraints
 psql -U postgres -d cerdos -f ./constraints/fk.sql
@@ -38,6 +39,7 @@ psql -U postgres -d cerdos -f ./funciones/agregar_producto_recolectada.sql
 psql -U postgres -d cerdos -f ./funciones/agregar_comida_suministrada.sql
 psql -U postgres -d cerdos -f ./funciones/agregar_restaurante.sql
 psql -U postgres -d cerdos -f ./funciones/agregar_pago.sql
+psql -U postgres -d cerdos -f ./funciones/agregar_producto.sql
 
 @REM funcionales
 psql -U postgres -d cerdos -f ./funciones/funcionales/is_valid_base64.sql
@@ -64,6 +66,8 @@ psql -U postgres -d cerdos -f ./Data/Categoria_Costo.sql
 psql -U postgres -d cerdos -f ./Data/comida_suministrada.sql
 psql -U postgres -d cerdos -f ./Data/commission_type.sql
 psql -U postgres -d cerdos -f ./Data/product_category_sale.sql
+psql -U postgres -d cerdos -f ./Data/distribuidor_animal.sql
+psql -U postgres -d cerdos -f ./Data/animal.sql
 
 
 

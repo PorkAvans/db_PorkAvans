@@ -97,7 +97,7 @@ ALTER TABLE contabilidad_cerdos.productos_corral
 -- establecer la relación entre medicamento_animal y PRODUCTOS
 ALTER TABLE contabilidad_cerdos.medicamento_animal
     ADD CONSTRAINT fk_medicamento_animal
-        FOREIGN KEY (medicamento_animal_id) REFERENCES contabilidad_cerdos.products (product_id),
+        FOREIGN KEY (medicamento_id) REFERENCES contabilidad_cerdos.products (product_id),
     ADD CONSTRAINT fk_medicamento_animal_animal
         FOREIGN KEY (animal_id) REFERENCES contabilidad_cerdos.animal (animal_id);
 
@@ -149,3 +149,8 @@ ALTER TABLE contabilidad_cerdos.pre_ventas
 ALTER TABLE contabilidad_cerdos.pre_ventas
     ADD CONSTRAINT fk_producto_pre_venta
         FOREIGN KEY (pre_venta_producto_id) REFERENCES contabilidad_cerdos.products_sale (product_sale_id);
+
+--se crea constraint para distribuidor animal
+ALTER TABLE contabilidad_cerdos.animal
+    ADD CONSTRAINT fk_distribuidor_animal
+        FOREIGN KEY (animal_proveedor) REFERENCES contabilidad_cerdos.distribuidor_animal (distribuidor_animal_id);

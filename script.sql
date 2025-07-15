@@ -71,13 +71,15 @@ CREATE TABLE contabilidad_cerdos.product_type
 --se crea la tabla products
 CREATE TABLE contabilidad_cerdos.products
 (
-    product_id          SERIAL PRIMARY KEY,
-    product_type_id     INT,
-    product_name        VARCHAR(60),
-    product_content     NUMERIC,
-    product_description VARCHAR(255),
-    product_price_id    INT,
-    register_date       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    product_id            SERIAL PRIMARY KEY,
+    product_type_id       INT,
+    product_imagen        BYTEA,
+    product_name          VARCHAR(60),
+    product_content       NUMERIC,
+    product_unidad_medida VARCHAR(15),
+    product_description   VARCHAR(255),
+    product_price_id      INT,
+    register_date         TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 --se crea tabla distributor_debt
@@ -147,7 +149,8 @@ CREATE TABLE contabilidad_cerdos.corral
     corral_id          SERIAL PRIMARY KEY,
     corral_capacidad   INT,
     corral_descripcion TEXT,
-    corral_medidas     TEXT
+    corral_medidas     TEXT,
+    corral_estado      VARCHAR
 );
 
 --se crea la tabla de productos_corral
@@ -163,17 +166,18 @@ CREATE TABLE contabilidad_cerdos.productos_corral
 CREATE TABLE contabilidad_cerdos.animal
 (
     animal_id            SERIAL PRIMARY KEY,
+    animal_numero        SERIAL,
     animal_fecha_llegada TIMESTAMP,
     animal_fecha_salida  TIMESTAMP,
     animal_peso_llegada  NUMERIC,
     animal_peso_salida   NUMERIC,
     animal_edad          INT,
-    animal_genero        VARCHAR(10), -- Ej: 'Macho' o 'Hembra'
-    animal_raza          VARCHAR(50),
+    animal_genero        VARCHAR(10),
+    animal_raza          VARCHAR(255),
     animal_estado_salud  VARCHAR(100),
-    corral_id            INT,         -- FK a la tabla Corral
-    animal_proveedor     VARCHAR(100),
-    animal_motivo_salida VARCHAR(100),
+    corral_id            INT NOT NULL, -- FK a la tabla Corral
+    animal_proveedor     INT NOT NULL,
+    animal_motivo_salida VARCHAR(255),
     animal_nota          TEXT
 );
 
@@ -321,6 +325,15 @@ CREATE TABLE contabilidad_cerdos.pre_ventas
     estado_pre_venta      VARCHAR(50),
     correo_pre_venta      VARCHAR(50),
     observacion_pre_venta TEXT
+);
+
+--se crea la tabla de distribuidor de animales
+CREATE TABLE contabilidad_cerdos.distribuidor_animal
+(
+    distribuidor_animal_id        SERIAL PRIMARY KEY,
+    distribuidor_animal_nombre    TEXT         NOT NULL,
+    distribuidor_animal_celular   VARCHAR      NOT NULL,
+    distribuidor_animal_direccion VARCHAR(245) NOT NULL
 );
 
 

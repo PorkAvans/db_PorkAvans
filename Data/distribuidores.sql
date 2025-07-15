@@ -38,5 +38,8 @@ VALUES (decode(
        (decode('', 'base64'), 'Mattia', 'Calle 10 #14-24', 'Centro', 1, 2, '0000000000', '2024-11-04 07:57:00', 1,
         'ACTIVO'),
        (decode('', 'base64'), 'ASADERO EL DORADO', 'Dorado', 'Dorado', 1, 2, '0000000000', '2024-12-14 07:57:00', 1,
+        'ACTIVO'),
+       (decode('', 'base64'), 'DISTRIAVICOLA LA GRANJA', 'Carrera 14 #8-21', 'Mercado', 1, 2, '313363823',
+        '2025-06-17 07:57:00', 1,
         'ACTIVO')
 ;
