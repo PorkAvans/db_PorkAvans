@@ -146,11 +146,16 @@ CREATE TABLE contabilidad_cerdos.users
 --se crea la tabla de corral
 CREATE TABLE contabilidad_cerdos.corral
 (
-    corral_id          SERIAL PRIMARY KEY,
-    corral_capacidad   INT,
-    corral_descripcion TEXT,
-    corral_medidas     TEXT,
-    corral_estado      VARCHAR
+    corral_id              SERIAL PRIMARY KEY,
+    corral_fase_crianza_id INT,
+    corral_capacidad       INT,
+    corral_descripcion     TEXT,
+    corral_medidas         TEXT,
+    tipo_piso              VARCHAR(100),
+    tipo_bebedero          VARCHAR(100),
+    tipo_comedero          VARCHAR(100),
+    sistema_ventilacion    VARCHAR(100),
+    corral_estado          VARCHAR(100)
 );
 
 --se crea la tabla de productos_corral
@@ -336,6 +341,36 @@ CREATE TABLE contabilidad_cerdos.distribuidor_animal
     distribuidor_animal_direccion VARCHAR(245) NOT NULL
 );
 
+--se crea la tabla de faces de crianza
+CREATE TABLE contabilidad_cerdos.fase_crianza
+(
+    fase_crianza_id         SERIAL PRIMARY KEY,
+    nombre_fase             VARCHAR(100) NOT NULL, -- Lactancia, Engorde, Gestación
+    descripcion_fase        TEXT,
+    edad_min_semanas        INT,                   -- Ej.: 3 semanas
+    edad_max_semanas        INT,                   -- Ej.: 8 semanas
+    peso_min_kg             NUMERIC,
+    peso_max_kg             NUMERIC,
+    consumo_alimento_dia_kg NUMERIC,               -- Promedio o estimado por animal
+    consumo_agua_dia_litros NUMERIC,
+    ganancia_diaria_gr      NUMERIC,
+    tipo_alimento           VARCHAR(100),          -- Ej: Preiniciador, Engorde
+    duracion_dias_estimada  INT,
+    fecha_creacion          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    creado_por              TEXT
+);
+
+--se crea la tabla del hsitorial de las fases
+
+CREATE TABLE contabilidad_cerdos.historial_fase_crianza
+(
+    historial_id    SERIAL PRIMARY KEY,
+    corral_id       INT  NOT NULL,
+    fase_crianza_id INT  NOT NULL,
+    fecha_inicio    DATE NOT NULL,
+    fecha_fin       DATE,
+    user_id         TEXT
+);
 
 
 

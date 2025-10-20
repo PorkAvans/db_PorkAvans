@@ -68,6 +68,7 @@ psql -U postgres -d cerdos -f ./Data/commission_type.sql
 psql -U postgres -d cerdos -f ./Data/product_category_sale.sql
 psql -U postgres -d cerdos -f ./Data/distribuidor_animal.sql
 psql -U postgres -d cerdos -f ./Data/animal.sql
+psql -U postgres -d cerdos -f ./Data/fase_crianza.sql
 
 
 

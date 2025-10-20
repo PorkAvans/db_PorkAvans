@@ -154,3 +154,17 @@ ALTER TABLE contabilidad_cerdos.pre_ventas
 ALTER TABLE contabilidad_cerdos.animal
     ADD CONSTRAINT fk_distribuidor_animal
         FOREIGN KEY (animal_proveedor) REFERENCES contabilidad_cerdos.distribuidor_animal (distribuidor_animal_id);
+
+--se crea la relacion entre corral y fase_crianza
+ALTER TABLE contabilidad_cerdos.corral
+    ADD CONSTRAINT fk_fase_crianza
+        FOREIGN KEY (corral_fase_crianza_id) REFERENCES contabilidad_cerdos.fase_crianza (fase_crianza_id);
+
+--se crea la relacion del historial de fase_crianza
+ALTER TABLE contabilidad_cerdos.historial_fase_crianza
+    ADD CONSTRAINT fk_historial_fase_crianza
+        FOREIGN KEY (fase_crianza_id) REFERENCES contabilidad_cerdos.fase_crianza (fase_crianza_id),
+    ADD CONSTRAINT fk_historial_corral
+        FOREIGN KEY (corral_id) REFERENCES contabilidad_cerdos.corral (corral_id),
+    ADD CONSTRAINT fk_historial_user
+        FOREIGN KEY (user_id) REFERENCES contabilidad_cerdos.users (user_id);
